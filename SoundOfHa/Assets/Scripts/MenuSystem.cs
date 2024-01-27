@@ -19,6 +19,8 @@ public class MenuSystem : MonoBehaviour
 
     public void LoadScene(int sceneNumber)
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         Debug.Log("Loading Scene " + sceneNumber);
         SceneManager.LoadSceneAsync(sceneNumber);
     }
