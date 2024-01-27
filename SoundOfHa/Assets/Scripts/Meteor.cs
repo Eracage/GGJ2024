@@ -7,7 +7,7 @@ public class Meteor : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
-            MenuSystem.LoadSceneStatic(1);
+            MenuSystem.LoadSceneStatic(5);
         }
     }
 }

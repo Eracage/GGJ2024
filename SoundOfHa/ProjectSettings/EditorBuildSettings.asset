@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CreditsWon.unity
     guid: 824a632b0ec9d94469ea1eb2777d52f8
+  - enabled: 1
+    path: Assets/Scenes/Bossfight.unity
+    guid: d3c1fc343ad653345b3f88b6aa0f2268
   m_configObjects: {}
