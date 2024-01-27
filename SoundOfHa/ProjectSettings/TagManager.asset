@@ -12,10 +12,10 @@ TagManager:
   - Player
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - Enemy
+  - AggroSphere
+  - Ground
+  - Environment
   - 
   - 
   - 

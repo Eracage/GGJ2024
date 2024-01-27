@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class Enemy : MonoBehaviour, IDamageable
 {
     public EnemyData data;
+    public bool HasAggro { private set; get; } = false;
 
     private float m_CurrentHealth;
     private bool isEnraged = false;
@@ -27,7 +28,8 @@ public class Enemy : MonoBehaviour, IDamageable
 
     void Update()
     {
-        m_Agent.destination = target.position;
+        if (HasAggro)
+            m_Agent.destination = target.position;
     }
 
     public void TakeDamage(float damage)
@@ -56,5 +58,10 @@ public class Enemy : MonoBehaviour, IDamageable
             m_Agent.angularSpeed = data.enragedRotationSpeed;
             GetComponentInChildren<SpriteRenderer>().sprite = data.enragedSprite;
         }
+    }
+
+    public void Aggro()
+    {
+        HasAggro = true;
     }
 }

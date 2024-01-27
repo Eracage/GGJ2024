@@ -11,6 +11,7 @@ public class EnemyData : ScriptableObject
     public float damage = 10.0f;
     public float enragedDamage = 20.0f;
     public float attackRange = 2.0f;
+    public float engageDistance = 10f;
     
     [Tooltip("Percentage of health at witch the enemy will become enraged")]
     [Range(0.0f, 1.0f)]
