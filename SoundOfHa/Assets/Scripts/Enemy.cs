@@ -38,7 +38,7 @@ public class Enemy : MonoBehaviour, IDamageable
     {
         if(Vector3.Distance(transform.position, target.position) < data.attackRange)
         {
-            MenuSystem.LoadSceneStatic(3);
+            MenuSystem.LoadSceneStatic(5);
         }
         
 
