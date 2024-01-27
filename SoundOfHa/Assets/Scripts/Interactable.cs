@@ -27,10 +27,17 @@ public class Interactable : MonoBehaviour
 
     protected void playAudio()
     {
-        if (m_audioSource && audioClips.Length > 0)
+        if (audioClips.Length > 0)
         {
             int clip = Random.Range(0, audioClips.Length);
-            m_audioSource.PlayOneShot(audioClips[clip]);
+            if (m_audioSource)
+            {
+                m_audioSource.PlayOneShot(audioClips[clip]);
+            }
+            else
+            {
+                AudioSource.PlayClipAtPoint(audioClips[clip], transform.position);
+            }
         }
     }
 
