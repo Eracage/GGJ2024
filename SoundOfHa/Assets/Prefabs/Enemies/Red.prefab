@@ -70,7 +70,7 @@ GameObject:
   - component: {fileID: 798176066}
   - component: {fileID: 645108526720315931}
   m_Layer: 6
-  m_Name: EnemyPrefab
+  m_Name: Red
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -236,7 +236,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: 60a8f4a1a0f0f3341a3f4f855976ab23, type: 2}
-  m_bodySprite: {fileID: 5564167947094971518}
+  m_bodySprites:
+  - {fileID: 5564167947094971518}
 --- !u!136 &798176066
 CapsuleCollider:
   m_ObjectHideFlags: 0

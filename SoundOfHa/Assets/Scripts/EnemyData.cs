@@ -1,3 +1,4 @@
+using System.IO;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "EnemyData", menuName = "ScriptableObjects/EnemyData", order = 1)]
@@ -21,6 +22,6 @@ public class EnemyData : ScriptableObject
     public AudioClip onDieSound;
     public GameObject onDiePrefab;
     
-    public Sprite idleSprite;
-    public Sprite enragedSprite;
+    public Sprite[] idleSprites;
+    public Sprite[] enragedSprites;
 }
