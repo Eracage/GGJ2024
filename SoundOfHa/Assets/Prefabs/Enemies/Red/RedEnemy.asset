@@ -20,9 +20,10 @@ MonoBehaviour:
   damage: 10
   enragedDamage: 20
   attackRange: 2
+  engageDistance: 10
   patience: 0.5
   footstepSounds: {fileID: 8300000, guid: 54d84c38c5615a34aa00f738bf73dc37, type: 3}
   onHitSound: {fileID: 8300000, guid: 6933d6df3e0c50f43b102c47ea3e65c9, type: 3}
   onDieSound: {fileID: 8300000, guid: ab442cd9b2a823c44a7babbcb02724ba, type: 3}
-  idleSprite: {fileID: 21300000, guid: 17830cf05193b6e43a68c57a1045ad7d, type: 3}
-  enragedSprite: {fileID: 21300000, guid: 2c89c2cec360044409c3c2c040a50818, type: 3}
+  idleSprite: {fileID: 21300000, guid: 51ea10f83fbaf914ba1ea711e6b0218a, type: 3}
+  enragedSprite: {fileID: 21300000, guid: c96251b155ab22847813d0580138e488, type: 3}
