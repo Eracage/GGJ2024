@@ -22,4 +22,9 @@ public class MenuSystem : MonoBehaviour
         Debug.Log("Loading Scene " + sceneNumber);
         SceneManager.LoadSceneAsync(sceneNumber);
     }
+
+    public void Exit()
+    {
+        Application.Quit();
+    }
 }
