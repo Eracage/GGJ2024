@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour, IDamageable
     private Transform target;
     private NavMeshAgent m_Agent;
     private Animator m_Animator;
-    [SerializeField] SpriteRenderer m_bodySprite;
+    [SerializeField] SpriteRenderer[] m_bodySprites;
 
     void Start()
     {
@@ -26,6 +26,11 @@ public class Enemy : MonoBehaviour, IDamageable
         m_CurrentHealth = data.health;
         GetComponentInChildren<AudioSource>().clip = data.footstepSounds;
         GetComponentInChildren<AudioSource>().Play();
+
+        if(data.enragedSprites.Length == data.idleSprites.Length && data.enragedSprites.Length == m_bodySprites.Length)
+        {
+            Debug.LogError("Sprites and data are not the same length!");
+        }
     }
 
     void Update()
@@ -43,6 +48,12 @@ public class Enemy : MonoBehaviour, IDamageable
             deathSound.AddComponent<AudioSource>().clip = data.onDieSound;
             deathSound.GetComponent<AudioSource>().Play();
             Destroy(deathSound, data.onDieSound.length + 0.1f);
+
+            if(data.onDiePrefab != null)
+            {
+                Instantiate(data.onDiePrefab, transform.position, Quaternion.identity);
+            }
+
             Destroy(gameObject);
             return;
         }
@@ -57,7 +68,11 @@ public class Enemy : MonoBehaviour, IDamageable
             isEnraged = true;
             m_Agent.speed = data.enragedSpeed;
             m_Agent.angularSpeed = data.enragedRotationSpeed;
-            m_bodySprite.sprite = data.enragedSprite;
+
+            for(int i = 0; i< data.idleSprites.Length; i++)
+            {
+                m_bodySprites[i].sprite = data.enragedSprites[i];
+            }
         }
     }
 
