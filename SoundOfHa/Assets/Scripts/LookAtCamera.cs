@@ -5,7 +5,7 @@ using UnityEngine;
 public class LookAtCamera : MonoBehaviour
 {
     public Transform target;
-    // Start is called before the first frame update
+
     void Start()
     {
         if (!target)
@@ -14,9 +14,9 @@ public class LookAtCamera : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
-        transform.LookAt(target);
+        Vector3 targetPosition = new Vector3(target.position.x, transform.position.y, target.position.z);
+        transform.LookAt(targetPosition);
     }
 }
