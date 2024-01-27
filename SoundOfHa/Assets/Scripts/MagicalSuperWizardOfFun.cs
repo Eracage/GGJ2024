@@ -27,7 +27,7 @@ public class MagicalSuperWizardOfFun : MonoBehaviour
     {
         if(m_hasInteracted)
         {
-            transform.Translate(Vector3.up * Time.deltaTime * m_flySpeed);
+            transform.position += Vector3.up * m_flySpeed * Time.deltaTime;
             return;
         }
 
@@ -49,6 +49,8 @@ public class MagicalSuperWizardOfFun : MonoBehaviour
 
     public void InteractWithWizard()
     {
+        m_agent.enabled = false;
+        m_hasInteracted = true;
         m_particles.SetActive(true);
         Destroy(gameObject, 25.0f);
     }

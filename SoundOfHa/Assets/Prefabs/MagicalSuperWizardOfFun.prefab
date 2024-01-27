@@ -360,7 +360,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2141743884192421410}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 2
@@ -5613,7 +5613,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 3
+  m_Time: 2
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -5667,7 +5667,7 @@ TrailRenderer:
     textureMode: 1
     shadowBias: 0.5
     generateLightingData: 0
-  m_MinVertexDistance: 0.3
+  m_MinVertexDistance: 0.5
   m_Autodestruct: 0
   m_Emitting: 1
 --- !u!1 &6376630393396587955
