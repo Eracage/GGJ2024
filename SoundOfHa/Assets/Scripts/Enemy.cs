@@ -27,7 +27,7 @@ public class Enemy : MonoBehaviour, IDamageable
         GetComponentInChildren<AudioSource>().clip = data.footstepSounds;
         GetComponentInChildren<AudioSource>().Play();
 
-        if(data.enragedSprites.Length == data.idleSprites.Length && data.enragedSprites.Length == m_bodySprites.Length)
+        if(!(data.enragedSprites.Length == data.idleSprites.Length && data.enragedSprites.Length == m_bodySprites.Length))
         {
             Debug.LogError("Sprites and data are not the same length!");
         }
