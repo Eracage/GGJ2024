@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour, IDamageable
 {
     public EnemyData data;
 
-    private float m_CurrentHealth;
+    public float m_CurrentHealth { get; set; }
     private bool isEnraged = false;
     private Transform target;
     private NavMeshAgent m_Agent;
@@ -39,7 +39,6 @@ public class Enemy : MonoBehaviour, IDamageable
             deathSound.AddComponent<AudioSource>().clip = data.onDieSound;
             deathSound.GetComponent<AudioSource>().Play();
             Destroy(deathSound, data.onDieSound.length + 0.1f);
-
             Destroy(gameObject);
             return;
         }

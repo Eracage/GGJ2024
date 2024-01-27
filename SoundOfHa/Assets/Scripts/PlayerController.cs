@@ -28,6 +28,8 @@ public class PlayerController : MonoBehaviour
 
     private Transform cameraTransform;
 
+    public GameObject projectilePrefab;
+
     private void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -111,13 +113,30 @@ public class PlayerController : MonoBehaviour
             IDamageable damageable = hit.collider.gameObject.GetComponent<IDamageable>();
             if (damageable != null)
             {
-                damageable.TakeDamage(damage);
+                StartCoroutine(DamageAfterDelay(damageable, 0.3f));
             }
             else
             {
-                GameObject decal = Instantiate(m_DecalPrefab, hit.point, cameraTransform.rotation);
-                Destroy(decal, 10.0f);
+                StartCoroutine(DecalAfterDelay(hit.point, cameraTransform.rotation, 0.3f));
             }
+
+            GameObject bullet = Instantiate(projectilePrefab, transform.position, cameraTransform.rotation);
+            bullet.GetComponent<Bullet>().target = hit.point;
         }
+    }
+
+
+    IEnumerator DamageAfterDelay(IDamageable damageable, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        if(damageable.m_CurrentHealth>0)
+            damageable.TakeDamage(damage);
+    }
+
+    IEnumerator DecalAfterDelay(Vector3 position,Quaternion rotation, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        GameObject decal = Instantiate(m_DecalPrefab, position, rotation);
+        Destroy(decal, 10.0f);
     }
 }
