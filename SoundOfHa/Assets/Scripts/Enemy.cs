@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
@@ -39,7 +38,7 @@ public class Enemy : MonoBehaviour, IDamageable
     {
         if(Vector3.Distance(transform.position, target.position) < data.attackRange)
         {
-            MenuSystem.LoadSceneStatic(1);
+            MenuSystem.LoadSceneStatic(3);
         }
         
 
