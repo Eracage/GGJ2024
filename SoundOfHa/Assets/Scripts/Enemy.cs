@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Enemy : MonoBehaviour, IDamageable
 {
@@ -27,7 +29,7 @@ public class Enemy : MonoBehaviour, IDamageable
         GetComponentInChildren<AudioSource>().clip = data.footstepSounds;
         GetComponentInChildren<AudioSource>().Play();
 
-        if(data.enragedSprites.Length == data.idleSprites.Length && data.enragedSprites.Length == m_bodySprites.Length)
+        if(!(data.enragedSprites.Length == data.idleSprites.Length && data.enragedSprites.Length == m_bodySprites.Length))
         {
             Debug.LogError("Sprites and data are not the same length!");
         }
@@ -35,6 +37,12 @@ public class Enemy : MonoBehaviour, IDamageable
 
     void Update()
     {
+        if(Vector3.Distance(transform.position, target.position) < data.attackRange)
+        {
+            MenuSystem.LoadSceneStatic(1);
+        }
+        
+
         if (HasAggro)
             m_Agent.destination = target.position;
     }
