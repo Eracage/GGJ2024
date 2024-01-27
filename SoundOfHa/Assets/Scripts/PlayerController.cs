@@ -12,12 +12,19 @@ public class PlayerController : MonoBehaviour
 
     public float damage = 10.0f;
 
+    public AudioClip[] shootingSounds;
+    public AudioSource shootingSource;
+
     public GameObject m_DecalPrefab;
 
     private Vector3 velocity;
     private CharacterController controller;
     private float rotationX = 0.0f;
     private float rotationY = 0.0f;
+
+    public float firerate = 0.3f;
+    private float nextFire = 0.0f;
+
     private Transform cameraTransform;
 
     private void Start()
@@ -57,14 +64,21 @@ public class PlayerController : MonoBehaviour
 
         controller.Move(movement * Time.deltaTime + velocity * Time.deltaTime);
 
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButton("Fire1"))
         {
-            Shoot();
+            if (Time.time > nextFire)
+            {
+                nextFire = Time.time + firerate;
+                Shoot();
+            }   
         }
     }
 
     private void Shoot()
     {
+        shootingSource.clip = shootingSounds[Random.Range(0, shootingSounds.Length)];
+        shootingSource.Play();
+
         RaycastHit hit;
         if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out hit, Mathf.Infinity, ~LayerMask.GetMask("Player")))
         {
