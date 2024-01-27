@@ -4,35 +4,28 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float speed = 50.0f;
-    public float damage = 10.0f;
-    public float lifeTime = 3.0f;
-
-    public GameObject m_DecalPrefab;
-
-    void Start()
-    {
-        Destroy(gameObject, lifeTime);
-    }
+    public Vector3 target;
+    float timeElapsed;
+    public float lerpDuration = 0.8f;
 
     void Update()
     {
-        transform.Translate(speed * Time.deltaTime * Vector3.forward);
-    }
+        if (target == null)
+            return;
 
-    private void OnCollisionEnter(Collision other) 
-    {
-        IDamageable damageable = other.gameObject.GetComponent<IDamageable>();
-        if (damageable != null)
+
+        float distance = Vector3.Distance(target, transform.position);
+        if (distance > 0.01f)
         {
-            damageable.TakeDamage(damage);
+            if (timeElapsed < lerpDuration)
+            {
+                transform.position = Vector3.Lerp(transform.position, target, timeElapsed / lerpDuration);
+                timeElapsed += Time.deltaTime;
+            }
         }
         else
         {
-            GameObject decal = Instantiate(m_DecalPrefab, other.contacts[0].point, transform.rotation);
-            Destroy(decal, 10.0f);
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
     }
-
 }

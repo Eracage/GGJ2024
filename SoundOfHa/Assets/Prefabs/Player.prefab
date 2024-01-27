@@ -393,4 +393,7 @@ MonoBehaviour:
   shootingSource: {fileID: 510593831}
   m_DecalPrefab: {fileID: 8674875415380473094, guid: e66785cf87bd60b45b8bd6560045140b,
     type: 3}
+  m_interactCollider: {fileID: 0}
   firerate: 0.15
+  projectilePrefab: {fileID: 5141160627205774978, guid: 3010430dfbf90c843ab7f1d1cdb51962,
+    type: 3}
