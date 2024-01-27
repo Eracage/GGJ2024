@@ -19,6 +19,7 @@ public class EnemyData : ScriptableObject
     public AudioClip footstepSounds;
     public AudioClip onHitSound;
     public AudioClip onDieSound;
+    public GameObject onDiePrefab;
     
     public Sprite idleSprite;
     public Sprite enragedSprite;
