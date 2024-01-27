@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Enemy : MonoBehaviour, IDamageable
 {
@@ -35,6 +37,12 @@ public class Enemy : MonoBehaviour, IDamageable
 
     void Update()
     {
+        if(Vector3.Distance(transform.position, target.position) < data.attackRange)
+        {
+            MenuSystem.LoadSceneStatic(1);
+        }
+        
+
         if (HasAggro)
             m_Agent.destination = target.position;
     }

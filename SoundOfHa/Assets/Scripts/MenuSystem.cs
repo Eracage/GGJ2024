@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MenuSystem : MonoBehaviour
 {
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +19,14 @@ public class MenuSystem : MonoBehaviour
     }
 
     public void LoadScene(int sceneNumber)
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        Debug.Log("Loading Scene " + sceneNumber);
+        SceneManager.LoadSceneAsync(sceneNumber);
+    }
+
+    public static void LoadSceneStatic(int sceneNumber)
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
