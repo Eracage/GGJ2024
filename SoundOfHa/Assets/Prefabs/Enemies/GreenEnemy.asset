@@ -25,7 +25,8 @@ MonoBehaviour:
   footstepSounds: {fileID: 8300000, guid: 54d84c38c5615a34aa00f738bf73dc37, type: 3}
   onHitSound: {fileID: 8300000, guid: 6933d6df3e0c50f43b102c47ea3e65c9, type: 3}
   onDieSound: {fileID: 8300000, guid: ab442cd9b2a823c44a7babbcb02724ba, type: 3}
-  onDiePrefab: {fileID: 0}
+  onDiePrefab: {fileID: 1731702649761299527, guid: b82f40bfb3afac84881b8a7ee746fbe7,
+    type: 3}
   idleSprites:
   - {fileID: 21300000, guid: be00728fcd1c8a343a335232f4b9dd96, type: 3}
   - {fileID: 21300000, guid: 89fab42a8cac060418cacd112af0aa2c, type: 3}
