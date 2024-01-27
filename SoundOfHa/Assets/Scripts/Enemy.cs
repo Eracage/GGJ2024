@@ -13,15 +13,17 @@ public class Enemy : MonoBehaviour, IDamageable
     private bool isEnraged = false;
     private Transform target;
     private NavMeshAgent m_Agent;
+    private Animator m_Animator;
+    [SerializeField] SpriteRenderer m_bodySprite;
 
     void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").transform;
         m_Agent = GetComponent<NavMeshAgent>();
+        m_Animator = transform.gameObject.GetComponentInChildren<Animator>();
         m_Agent.speed = data.speed;
         m_Agent.angularSpeed = data.rotationSpeed;
         m_CurrentHealth = data.health;
-        GetComponentInChildren<SpriteRenderer>().sprite = data.idleSprite;
         GetComponentInChildren<AudioSource>().clip = data.footstepSounds;
         GetComponentInChildren<AudioSource>().Play();
     }
@@ -56,12 +58,13 @@ public class Enemy : MonoBehaviour, IDamageable
             isEnraged = true;
             m_Agent.speed = data.enragedSpeed;
             m_Agent.angularSpeed = data.enragedRotationSpeed;
-            GetComponentInChildren<SpriteRenderer>().sprite = data.enragedSprite;
+            m_bodySprite.sprite = data.enragedSprite;
         }
     }
 
     public void Aggro()
     {
         HasAggro = true;
+        m_Animator.SetTrigger("StartWalking");
     }
 }
