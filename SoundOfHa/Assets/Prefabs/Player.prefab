@@ -155,7 +155,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2477394885216999694}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 0.75, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -395,7 +395,7 @@ MonoBehaviour:
   shootingSource: {fileID: 510593831}
   m_DecalPrefab: {fileID: 8674875415380473094, guid: e66785cf87bd60b45b8bd6560045140b,
     type: 3}
-  m_interactCollider: {fileID: 0}
+  m_interactCollider: {fileID: 49613917}
   firerate: 0.15
   projectilePrefab: {fileID: 5141160627205774978, guid: 3010430dfbf90c843ab7f1d1cdb51962,
     type: 3}
@@ -410,8 +410,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1
-  m_Center: {x: 0, y: 0, z: 1}
+  m_Radius: 1.5
+  m_Center: {x: 0, y: 0.5, z: 1}
 --- !u!1 &3136528980866353065
 GameObject:
   m_ObjectHideFlags: 0
