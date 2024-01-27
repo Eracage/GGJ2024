@@ -19,7 +19,7 @@ MonoBehaviour:
   health: 25
   damage: 10
   enragedDamage: 20
-  attackRange: 2
+  attackRange: 1.5
   engageDistance: 10
   patience: 0.5
   footstepSounds: {fileID: 8300000, guid: 54d84c38c5615a34aa00f738bf73dc37, type: 3}
