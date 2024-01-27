@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuSystem : MonoBehaviour
 {
@@ -14,5 +15,11 @@ public class MenuSystem : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void LoadScene(int sceneNumber)
+    {
+        Debug.Log("Loading Scene " + sceneNumber);
+        SceneManager.LoadSceneAsync(sceneNumber);
     }
 }

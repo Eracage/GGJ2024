@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public float damage = 10.0f;
 
     public GameObject m_DecalPrefab;
+    public SphereCollider m_interactCollider;
 
     private Vector3 velocity;
     private CharacterController controller;
@@ -60,6 +61,31 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             Shoot();
+        }
+
+        if (Input.GetButtonDown("Fire2"))
+        {
+            Interact();
+        }
+    }
+
+    private void Interact()
+    {
+        if (!m_interactCollider)
+        {
+            return;
+        }
+
+        var collisions = Physics.OverlapSphere(m_interactCollider.transform.position, m_interactCollider.radius);
+        foreach (var c in collisions)
+        {
+            Debug.Log("Collided with", c);
+            var target = c.GetComponent<Interactable>();
+            if (target)
+            {
+                Debug.Log("Interacting");
+                target.Interact();
+            }
         }
     }
 
