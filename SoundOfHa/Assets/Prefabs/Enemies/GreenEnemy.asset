@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0b508aa90e729b249adf64eea828068c, type: 3}
-  m_Name: RedEnemy
+  m_Name: GreenEnemy
   m_EditorClassIdentifier: 
   speed: 5
   enragedSpeed: 7
@@ -25,5 +25,12 @@ MonoBehaviour:
   footstepSounds: {fileID: 8300000, guid: 54d84c38c5615a34aa00f738bf73dc37, type: 3}
   onHitSound: {fileID: 8300000, guid: 6933d6df3e0c50f43b102c47ea3e65c9, type: 3}
   onDieSound: {fileID: 8300000, guid: ab442cd9b2a823c44a7babbcb02724ba, type: 3}
-  idleSprite: {fileID: 21300000, guid: 51ea10f83fbaf914ba1ea711e6b0218a, type: 3}
-  enragedSprite: {fileID: 21300000, guid: c96251b155ab22847813d0580138e488, type: 3}
+  onDiePrefab: {fileID: 0}
+  idleSprites:
+  - {fileID: 21300000, guid: be00728fcd1c8a343a335232f4b9dd96, type: 3}
+  - {fileID: 21300000, guid: 89fab42a8cac060418cacd112af0aa2c, type: 3}
+  - {fileID: 21300000, guid: 0463693bb4c2d6045a902c9514ef338e, type: 3}
+  enragedSprites:
+  - {fileID: 21300000, guid: d9748b542701a904f81d02817377ec66, type: 3}
+  - {fileID: 21300000, guid: dcf077fce95b07c498bb02a4ece79d1d, type: 3}
+  - {fileID: 21300000, guid: 718cafcb59c8dc645ab8e0270d60e392, type: 3}
