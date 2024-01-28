@@ -7,7 +7,6 @@ public class PlayerController : MonoBehaviour
 {
     public float speed = 5.0f;
     public float gravity = -9.81f;
-    public float jumpHeight = 2.0f;
     public float mouseSensitivity = 400.0f;
 
     public float damage = 10.0f;
@@ -56,11 +55,6 @@ public class PlayerController : MonoBehaviour
         if (controller.isGrounded && velocity.y < 0)
         {
             velocity.y = -2f;  // Small downward force when on the ground to keep the player grounded
-        }
-
-        if (Input.GetButtonDown("Jump") && controller.isGrounded)
-        {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
 
         velocity.y += gravity * Time.deltaTime;
