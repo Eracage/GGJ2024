@@ -170,7 +170,7 @@ public class PlayerController : MonoBehaviour
             dashableDistance = hit.distance - 0.4f;
         }
 
-        StartCoroutine(SmoothDash(dashDirection, dashDistance, dashDuration));
+        StartCoroutine(SmoothDash(dashDirection, dashableDistance, dashDuration));
         StartCoroutine(DashEffect());
     }
 
