@@ -10,13 +10,13 @@ PrefabInstance:
     - target: {fileID: 72687038349159292, guid: 0a9b71e4dfa83e241b0f1ad0021e44b3,
         type: 3}
       propertyPath: audioClips.Array.size
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 72687038349159292, guid: 0a9b71e4dfa83e241b0f1ad0021e44b3,
         type: 3}
       propertyPath: audioClips.Array.data[0]
       value: 
-      objectReference: {fileID: 8300000, guid: ec37f6f41c7a84b469cf5b61f1672c7e, type: 3}
+      objectReference: {fileID: 8300000, guid: 0e6752945cfcb7b4b92d598d0ae6858d, type: 3}
     - target: {fileID: 72687038349159292, guid: 0a9b71e4dfa83e241b0f1ad0021e44b3,
         type: 3}
       propertyPath: audioClips.Array.data[1]

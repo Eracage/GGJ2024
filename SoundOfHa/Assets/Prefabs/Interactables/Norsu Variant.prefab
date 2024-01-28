@@ -226,6 +226,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 72687038349159292, guid: 0a9b71e4dfa83e241b0f1ad0021e44b3,
         type: 3}
+      propertyPath: audioClips.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 72687038349159292, guid: 0a9b71e4dfa83e241b0f1ad0021e44b3,
+        type: 3}
+      propertyPath: audioClips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: c722153fa4d1c46409514e037eb0a08d, type: 3}
+    - target: {fileID: 72687038349159292, guid: 0a9b71e4dfa83e241b0f1ad0021e44b3,
+        type: 3}
       propertyPath: interactEvent.m_PersistentCalls.m_Calls.Array.size
       value: 2
       objectReference: {fileID: 0}

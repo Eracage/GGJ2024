@@ -10,6 +10,9 @@ public class Interactable : MonoBehaviour
     public UnityEvent interactEvent;
     public AudioClip[] audioClips;
 
+    public float timeForTimedEvent;
+    public UnityEvent timedEvent;
+
     Collider m_collider;
     AudioSource m_audioSource;
 
@@ -41,15 +44,28 @@ public class Interactable : MonoBehaviour
         }
     }
 
+    IEnumerator enumeratedTimedInteract()
+    {
+        yield return new WaitForSeconds(timeForTimedEvent);
+        timedEvent.Invoke();
+        timedInteract();
+    }
+
     public void Interact()
     {
         Debug.Log("Interacting with", this);
         interactEvent.Invoke();
         interact();
+        StartCoroutine(enumeratedTimedInteract());
     }
 
     virtual protected void interact()
     {
         playAudio();
+    }
+
+    virtual protected void timedInteract()
+    {
+
     }
 }

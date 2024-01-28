@@ -460,12 +460,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 72687038349159292, guid: 0a9b71e4dfa83e241b0f1ad0021e44b3,
         type: 3}
-      propertyPath: interactEvent.m_PersistentCalls.m_Calls.Array.size
+      propertyPath: audioClips.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 72687038349159292, guid: 0a9b71e4dfa83e241b0f1ad0021e44b3,
         type: 3}
+      propertyPath: audioClips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 57b34c25cb92e6541bb730914720b236, type: 3}
+    - target: {fileID: 72687038349159292, guid: 0a9b71e4dfa83e241b0f1ad0021e44b3,
+        type: 3}
+      propertyPath: interactEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 72687038349159292, guid: 0a9b71e4dfa83e241b0f1ad0021e44b3,
+        type: 3}
       propertyPath: interactEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 72687038349159292, guid: 0a9b71e4dfa83e241b0f1ad0021e44b3,
+        type: 3}
+      propertyPath: interactEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 72687038349159292, guid: 0a9b71e4dfa83e241b0f1ad0021e44b3,
@@ -475,7 +490,17 @@ PrefabInstance:
       objectReference: {fileID: 1308191979}
     - target: {fileID: 72687038349159292, guid: 0a9b71e4dfa83e241b0f1ad0021e44b3,
         type: 3}
+      propertyPath: interactEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 8378737825581816615}
+    - target: {fileID: 72687038349159292, guid: 0a9b71e4dfa83e241b0f1ad0021e44b3,
+        type: 3}
       propertyPath: interactEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 72687038349159292, guid: 0a9b71e4dfa83e241b0f1ad0021e44b3,
+        type: 3}
+      propertyPath: interactEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 72687038349159292, guid: 0a9b71e4dfa83e241b0f1ad0021e44b3,
@@ -485,8 +510,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 72687038349159292, guid: 0a9b71e4dfa83e241b0f1ad0021e44b3,
         type: 3}
+      propertyPath: interactEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: set_enabled
+      objectReference: {fileID: 0}
+    - target: {fileID: 72687038349159292, guid: 0a9b71e4dfa83e241b0f1ad0021e44b3,
+        type: 3}
       propertyPath: interactEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 72687038349159292, guid: 0a9b71e4dfa83e241b0f1ad0021e44b3,
+        type: 3}
+      propertyPath: interactEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: UnityEngine.Collider, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 72687038349159292, guid: 0a9b71e4dfa83e241b0f1ad0021e44b3,
         type: 3}
@@ -496,6 +531,11 @@ PrefabInstance:
     - target: {fileID: 72687038349159292, guid: 0a9b71e4dfa83e241b0f1ad0021e44b3,
         type: 3}
       propertyPath: interactEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 72687038349159292, guid: 0a9b71e4dfa83e241b0f1ad0021e44b3,
+        type: 3}
+      propertyPath: interactEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 2837465569572208432, guid: 0a9b71e4dfa83e241b0f1ad0021e44b3,
@@ -569,6 +609,12 @@ PrefabInstance:
 --- !u!4 &2967980326381990738 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2837465569572208432, guid: 0a9b71e4dfa83e241b0f1ad0021e44b3,
+    type: 3}
+  m_PrefabInstance: {fileID: 1031554693871438946}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &8378737825581816615 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 8797658931740989253, guid: 0a9b71e4dfa83e241b0f1ad0021e44b3,
     type: 3}
   m_PrefabInstance: {fileID: 1031554693871438946}
   m_PrefabAsset: {fileID: 0}
