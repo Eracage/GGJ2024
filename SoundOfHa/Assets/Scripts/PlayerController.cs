@@ -155,8 +155,17 @@ public class PlayerController : MonoBehaviour
     
     private void Dash()
     {
+
+        float dashableDistance = dashDistance;
+
         Vector3 dashDirection = controller.velocity.normalized;
-        StartCoroutine(SmoothDash(dashDirection, dashDistance, 0.3f));
+
+        if(Physics.Raycast(transform.position, dashDirection, out RaycastHit hit, dashDistance))
+        {
+            dashableDistance = hit.distance - 0.4f;
+        }
+        
+        StartCoroutine(SmoothDash(dashDirection, dashableDistance, 0.3f));
         StartCoroutine(DashEffect());
         nextDash = Time.time + dashCooldown;
     }
