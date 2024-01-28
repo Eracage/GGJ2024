@@ -158,9 +158,18 @@ public class PlayerController : MonoBehaviour
             return;
 
         stamina -= staminaDashCost;
-        Vector3 dashDirection = controller.velocity.normalized;
         const float dashDuration = 0.3f;
         nextDash = Time.time + dashDuration;
+
+        float dashableDistance = dashDistance;
+
+        Vector3 dashDirection = controller.velocity.normalized;
+
+        if(Physics.Raycast(transform.position, dashDirection, out RaycastHit hit, dashDistance))
+        {
+            dashableDistance = hit.distance - 0.4f;
+        }
+
         StartCoroutine(SmoothDash(dashDirection, dashDistance, dashDuration));
         StartCoroutine(DashEffect());
     }
