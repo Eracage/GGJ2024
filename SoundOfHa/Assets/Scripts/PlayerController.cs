@@ -30,6 +30,11 @@ public class PlayerController : MonoBehaviour
     private float nextFire = 0.0f;
     private float nextDash = 0.0f;
 
+    public float staminaMax = 10.0f;
+    public float stamina = 5.0f;
+    public float staminaRegen = 2.0f;
+    public float staminaDashCost = 6.0f;
+
     private Transform cameraTransform;
 
     public GameObject projectilePrefab;
@@ -45,6 +50,9 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        stamina = Mathf.Clamp(stamina + staminaRegen * Time.deltaTime, 0, staminaMax);
+        
+
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
 
@@ -77,6 +85,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonDown("Fire2"))
         {
+            stamina -= 4.0f;
             Interact();
         }
 

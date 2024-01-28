@@ -17,6 +17,8 @@ public class EnemyData : ScriptableObject
     [Tooltip("Percentage of health at witch the enemy will become enraged")]
     [Range(0.0f, 1.0f)]
     public float patience = 0.5f;
+    public AudioClip[] idleSounds;
+    public AudioClip aggroSound;
     public AudioClip footstepSounds;
     public AudioClip onHitSound;
     public AudioClip onDieSound;
