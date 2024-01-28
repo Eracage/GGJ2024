@@ -32,7 +32,13 @@ public class Boss : MonoBehaviour
     public Transform player;
     SpriteRenderer spriteRenderer;
 
-    public Sprite[] stateSprites;
+    public SpriteRenderer[] RedEyeRenederers;
+    public SpriteRenderer[] GreenEyeRenederers;
+    public SpriteRenderer[] TealEyeRenederers;
+
+    public Sprite[] RedEyes;
+    public Sprite[] GreenEyes;
+    public Sprite[] TealEyes;
 
     void Start()
     {
@@ -84,7 +90,18 @@ public class Boss : MonoBehaviour
         if(lastState != BossState.Indifferent)
         {
             Instantiate(bells);
-            spriteRenderer.sprite = stateSprites[1];
+            foreach(SpriteRenderer sr in RedEyeRenederers)
+            {
+                sr.sprite = RedEyes[1];
+            }
+            foreach(SpriteRenderer sr in GreenEyeRenederers)
+            {
+                sr.sprite = GreenEyes[1];
+            }
+            foreach(SpriteRenderer sr in TealEyeRenederers)
+            {
+                sr.sprite = TealEyes[1];
+            }
             lastState = BossState.Indifferent;
             lastShootTime = Time.time;
         }
@@ -119,7 +136,18 @@ public class Boss : MonoBehaviour
     {
         if(lastState != BossState.Flustered)
         {
-            spriteRenderer.sprite = stateSprites[2];
+            foreach(SpriteRenderer sr in RedEyeRenederers)
+            {
+                sr.sprite = RedEyes[2];
+            }
+            foreach(SpriteRenderer sr in GreenEyeRenederers)
+            {
+                sr.sprite = GreenEyes[2];
+            }
+            foreach(SpriteRenderer sr in TealEyeRenederers)
+            {
+                sr.sprite = TealEyes[2];
+            }
             lastState = BossState.Flustered;
             lastShootTime = Time.time;
             meteorfirerate = 5f;
@@ -160,7 +188,18 @@ public class Boss : MonoBehaviour
     {
         if(lastState != BossState.Happy)
         {
-            spriteRenderer.sprite = stateSprites[3];
+            foreach(SpriteRenderer sr in RedEyeRenederers)
+            {
+                sr.sprite = RedEyes[3];
+            }
+            foreach(SpriteRenderer sr in GreenEyeRenederers)
+            {
+                sr.sprite = GreenEyes[3];
+            }
+            foreach(SpriteRenderer sr in TealEyeRenederers)
+            {
+                sr.sprite = TealEyes[3];
+            }
             lastState = BossState.Happy;
             finishLine.SetActive(true);
         }
