@@ -1978,6 +1978,11 @@ PrefabInstance:
       objectReference: {fileID: 1069921099}
     - target: {fileID: 8778214722665032998, guid: 3bc9765d8b641b94095c0ffa3159558c,
         type: 3}
+      propertyPath: enemytypes.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8778214722665032998, guid: 3bc9765d8b641b94095c0ffa3159558c,
+        type: 3}
       propertyPath: destroyers.Array.data[0]
       value: 
       objectReference: {fileID: 222884381}
@@ -2011,6 +2016,12 @@ PrefabInstance:
       propertyPath: destroyers.Array.data[6]
       value: 
       objectReference: {fileID: 1602464747}
+    - target: {fileID: 8778214722665032998, guid: 3bc9765d8b641b94095c0ffa3159558c,
+        type: 3}
+      propertyPath: enemytypes.Array.data[3]
+      value: 
+      objectReference: {fileID: 4921915045990366850, guid: 0347cbce1ffe1f043934e120cefca01a,
+        type: 3}
     - target: {fileID: 8778214722665033179, guid: 3bc9765d8b641b94095c0ffa3159558c,
         type: 3}
       propertyPath: m_Name
