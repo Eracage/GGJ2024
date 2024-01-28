@@ -175,6 +175,7 @@ public class Boss : MonoBehaviour
             {
                 GameObject gm = Instantiate(enemytypes[Random.Range(0, enemytypes.Length)], armySpawnPoint.position + new Vector3((columns+1)*3, 0, (rows+1)*3), Quaternion.identity);
                 army.Add(gm);
+                gm.GetComponent<Enemy>().Aggro();
             }
         }
     }

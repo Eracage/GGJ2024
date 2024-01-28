@@ -17,7 +17,7 @@ public class Enemy : MonoBehaviour, IDamageable
     private Animator m_Animator;
     [SerializeField] SpriteRenderer[] m_bodySprites;
 
-    void Start()
+    void Awake()
     {
         target = GameObject.FindGameObjectWithTag("Player").transform;
         m_Agent = GetComponent<NavMeshAgent>();
@@ -48,6 +48,7 @@ public class Enemy : MonoBehaviour, IDamageable
 
     public void TakeDamage(float damage)
     {
+        Aggro();
         m_CurrentHealth -= damage;
         if (m_CurrentHealth <= 0)
         {
@@ -85,6 +86,8 @@ public class Enemy : MonoBehaviour, IDamageable
 
     public void Aggro()
     {
+        if (HasAggro)
+            return;
         HasAggro = true;
         m_Animator.SetTrigger("StartWalking");
     }

@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b508aa90e729b249adf64eea828068c, type: 3}
   m_Name: RedEnemy
   m_EditorClassIdentifier: 
-  speed: 5
-  enragedSpeed: 7
+  speed: 3
+  enragedSpeed: 5
   rotationSpeed: 160
   enragedRotationSpeed: 200
   health: 25
   damage: 10
   enragedDamage: 20
-  attackRange: 1
-  engageDistance: 10
+  attackRange: 1.5
+  engageDistance: 20
   patience: 0.5
   footstepSounds: {fileID: 8300000, guid: 54d84c38c5615a34aa00f738bf73dc37, type: 3}
   onHitSound: {fileID: 8300000, guid: 6933d6df3e0c50f43b102c47ea3e65c9, type: 3}

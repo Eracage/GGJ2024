@@ -102,6 +102,7 @@ public class PlayerController : MonoBehaviour
         shootingSource.Play();
 
         RaycastHit hit;
+        Vector3 hitTarget = cameraTransform.position + cameraTransform.forward * 50.0f;
         if (Physics.Raycast(cameraTransform.position, cameraTransform.forward, out hit, Mathf.Infinity, ~LayerMask.GetMask("Player")))
         {
             IDamageable damageable = hit.collider.gameObject.GetComponent<IDamageable>();
@@ -113,10 +114,10 @@ public class PlayerController : MonoBehaviour
             {
                 StartCoroutine(DecalAfterDelay(hit.point, cameraTransform.rotation, 0.3f));
             }
-
-            GameObject bullet = Instantiate(projectilePrefab, transform.position, cameraTransform.rotation);
-            bullet.GetComponent<Bullet>().target = hit.point;
+            hitTarget = hit.point;
         }
+        GameObject bullet = Instantiate(projectilePrefab, transform.position, cameraTransform.rotation);
+        bullet.GetComponent<Bullet>().target = hitTarget;
     }
 
 
