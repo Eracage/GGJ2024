@@ -42,6 +42,7 @@ public class Enemy : MonoBehaviour, IDamageable
     {
         if(Vector3.Distance(transform.position, target.position) < data.attackRange)
         {
+            GameObject.FindGameObjectWithTag("PlayerDieSound").GetComponent<TeleportSound>().Play();
             MenuSystem.LoadSceneStatic(5);
         }
         

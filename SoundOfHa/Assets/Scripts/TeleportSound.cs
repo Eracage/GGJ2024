@@ -7,4 +7,6 @@ public class TeleportSound : MonoBehaviour
         GetComponent<AudioSource>().Play();
         DontDestroyOnLoad(gameObject);
     }
+
+    
 }

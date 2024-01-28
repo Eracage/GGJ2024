@@ -7,6 +7,7 @@ public class Meteor : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
+            GameObject.FindGameObjectWithTag("PlayerDieSound").GetComponent<TeleportSound>().Play();
             MenuSystem.LoadSceneStatic(5);
         }
     }

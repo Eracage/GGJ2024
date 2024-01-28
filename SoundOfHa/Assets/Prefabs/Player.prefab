@@ -383,7 +383,7 @@ MonoBehaviour:
   DashEffectImage: {fileID: 0}
   speed: 6
   gravity: -9.81
-  mouseSensitivity: 400
+  mouseSensitivity: 100
   dashDistance: 7
   dashCooldown: 2
   damage: 10
