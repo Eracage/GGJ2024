@@ -23,7 +23,7 @@ MonoBehaviour:
   engageDistance: 100
   patience: 0.8
   idleSounds: []
-  aggroSound: {fileID: 0}
+  aggroSound: {fileID: 8300000, guid: 2745b2670188b0b42ac64aebc7b454a6, type: 3}
   footstepSounds: {fileID: 8300000, guid: 54d84c38c5615a34aa00f738bf73dc37, type: 3}
   onHitSound: {fileID: 8300000, guid: 6933d6df3e0c50f43b102c47ea3e65c9, type: 3}
   onDieSound: {fileID: 8300000, guid: ab442cd9b2a823c44a7babbcb02724ba, type: 3}
