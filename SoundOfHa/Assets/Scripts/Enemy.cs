@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour, IDamageable
     private Transform target;
     private NavMeshAgent m_Agent;
     private Animator m_Animator;
+    private AudioSource audioSource;
     [SerializeField] SpriteRenderer[] m_bodySprites;
     [SerializeField] ParticleSystem m_particleSystem;
 
@@ -27,8 +28,8 @@ public class Enemy : MonoBehaviour, IDamageable
         m_Agent.speed = data.speed;
         m_Agent.angularSpeed = data.rotationSpeed;
         m_CurrentHealth = data.health;
-        GetComponentInChildren<AudioSource>().clip = data.footstepSounds;
-        GetComponentInChildren<AudioSource>().Play();
+        audioSource = GetComponentInChildren<AudioSource>();
+        audioSource.clip = data.footstepSounds;
         GetComponent<IdleSounds>().clips = data.idleSounds;
 
         if(!(data.enragedSprites.Length == data.idleSprites.Length && data.enragedSprites.Length == m_bodySprites.Length))
@@ -97,6 +98,7 @@ public class Enemy : MonoBehaviour, IDamageable
         if (HasAggro)
             return;
         HasAggro = true;
+        audioSource.Play();
 
         playClip(data.aggroSound);
 

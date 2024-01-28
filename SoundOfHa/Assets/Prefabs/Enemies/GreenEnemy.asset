@@ -12,16 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b508aa90e729b249adf64eea828068c, type: 3}
   m_Name: GreenEnemy
   m_EditorClassIdentifier: 
-  speed: 6
-  enragedSpeed: 12
+  speed: 5
+  enragedSpeed: 8
   rotationSpeed: 160
   enragedRotationSpeed: 200
-  health: 45
+  health: 55
   damage: 10
   enragedDamage: 20
   attackRange: 2
   engageDistance: 30
   patience: 0.8
+  idleSounds: []
+  aggroSound: {fileID: 0}
   footstepSounds: {fileID: 8300000, guid: 54d84c38c5615a34aa00f738bf73dc37, type: 3}
   onHitSound: {fileID: 8300000, guid: 6933d6df3e0c50f43b102c47ea3e65c9, type: 3}
   onDieSound: {fileID: 8300000, guid: ab442cd9b2a823c44a7babbcb02724ba, type: 3}

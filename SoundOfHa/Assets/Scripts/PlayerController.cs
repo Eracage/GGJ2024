@@ -105,7 +105,6 @@ public class PlayerController : MonoBehaviour
         var collisions = Physics.OverlapSphere(m_interactCollider.transform.position, m_interactCollider.radius);
         foreach (var c in collisions)
         {
-            Debug.Log("Collided with", c);
             var target = c.GetComponent<Interactable>();
             if (target)
             {
