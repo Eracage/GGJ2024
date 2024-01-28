@@ -196,6 +196,14 @@ PrefabInstance:
       propertyPath: m_bodySprites.Array.data[2]
       value: 
       objectReference: {fileID: 9197142874871086859}
+    - target: {fileID: 798176066, guid: f1de161fa0cc946409a17044c4c52956, type: 3}
+      propertyPath: m_Radius
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 798176066, guid: f1de161fa0cc946409a17044c4c52956, type: 3}
+      propertyPath: m_Center.y
+      value: 1.2
+      objectReference: {fileID: 0}
     - target: {fileID: 482084102337007439, guid: f1de161fa0cc946409a17044c4c52956,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -230,12 +238,12 @@ PrefabInstance:
     - target: {fileID: 2738647545302926158, guid: f1de161fa0cc946409a17044c4c52956,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.149
+      value: -0.048
       objectReference: {fileID: 0}
     - target: {fileID: 2738647545302926158, guid: f1de161fa0cc946409a17044c4c52956,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2738647545302926158, guid: f1de161fa0cc946409a17044c4c52956,
         type: 3}
