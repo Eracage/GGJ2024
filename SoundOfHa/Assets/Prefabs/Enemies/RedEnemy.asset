@@ -24,8 +24,8 @@ MonoBehaviour:
   patience: 0.5
   idleSounds:
   - {fileID: 8300000, guid: 5a019e169100f0f4faf03ce04e01481e, type: 3}
-  aggroSound: {fileID: 0}
-  footstepSounds: {fileID: 8300000, guid: 54d84c38c5615a34aa00f738bf73dc37, type: 3}
+  aggroSound: {fileID: 8300000, guid: 2745b2670188b0b42ac64aebc7b454a6, type: 3}
+  footstepSounds: {fileID: 8300000, guid: 1bdaf24c2373d3f4dbd0b32272a7863e, type: 3}
   onHitSound: {fileID: 8300000, guid: 6933d6df3e0c50f43b102c47ea3e65c9, type: 3}
   onDieSound: {fileID: 8300000, guid: ab442cd9b2a823c44a7babbcb02724ba, type: 3}
   onDiePrefab: {fileID: 1731702649761299527, guid: b82f40bfb3afac84881b8a7ee746fbe7,

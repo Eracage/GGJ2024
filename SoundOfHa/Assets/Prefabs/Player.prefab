@@ -380,9 +380,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f39ff80d32d1c954886cafbad187b4ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DashEffectImage: {fileID: 0}
   speed: 6
   gravity: -9.81
   mouseSensitivity: 400
+  dashDistance: 7
+  dashCooldown: 2
   damage: 10
   shootingSounds:
   - {fileID: 8300000, guid: ec37f6f41c7a84b469cf5b61f1672c7e, type: 3}
@@ -396,6 +399,10 @@ MonoBehaviour:
     type: 3}
   m_interactCollider: {fileID: 49613917}
   firerate: 0.15
+  staminaMax: 10
+  stamina: 5
+  staminaRegen: 2
+  staminaDashCost: 6
   projectilePrefab: {fileID: 5141160627205774978, guid: 3010430dfbf90c843ab7f1d1cdb51962,
     type: 3}
 --- !u!135 &49613917
@@ -455,7 +462,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 25
+  m_Radius: 35
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &5609921497616571620
 MonoBehaviour:
