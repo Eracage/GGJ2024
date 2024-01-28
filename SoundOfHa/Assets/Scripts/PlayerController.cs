@@ -2,12 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Burst.Intrinsics;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+    public Image DashEffectImage;
     public float speed = 5.0f;
     public float gravity = -9.81f;
     public float mouseSensitivity = 400.0f;
+    public float dashDistance = 7.0f;
+    public float dashCooldown = 2.0f;
 
     public float damage = 10.0f;
 
@@ -24,6 +28,7 @@ public class PlayerController : MonoBehaviour
 
     public float firerate = 0.3f;
     private float nextFire = 0.0f;
+    private float nextDash = 0.0f;
 
     private Transform cameraTransform;
 
@@ -74,6 +79,11 @@ public class PlayerController : MonoBehaviour
         {
             Interact();
         }
+
+        if (Input.GetKeyDown(KeyCode.LeftShift) && Time.time > nextDash)
+        {
+            Dash();
+        }
     }
 
     private void Interact()
@@ -120,7 +130,6 @@ public class PlayerController : MonoBehaviour
         bullet.GetComponent<Bullet>().target = hitTarget;
     }
 
-
     IEnumerator DamageAfterDelay(IDamageable damageable, float delay)
     {
         yield return new WaitForSeconds(delay);
@@ -134,4 +143,54 @@ public class PlayerController : MonoBehaviour
         GameObject decal = Instantiate(m_DecalPrefab, position, rotation);
         Destroy(decal, 10.0f);
     }
+
+    
+    private void Dash()
+    {
+        Vector3 dashDirection = controller.velocity.normalized;
+        StartCoroutine(SmoothDash(dashDirection, dashDistance, 0.3f));
+        StartCoroutine(DashEffect());
+        nextDash = Time.time + dashCooldown;
+    }
+
+    private IEnumerator SmoothDash(Vector3 direction, float distance, float duration)
+    {
+        float elapsedTime = 0f;
+        Vector3 startPosition = transform.position;
+        Vector3 targetPosition = startPosition + direction * distance;
+
+        while (elapsedTime < duration)
+        {
+            float t = elapsedTime / duration;
+            transform.position = Vector3.Lerp(startPosition, targetPosition, t);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        transform.position = targetPosition;
+    }
+
+    private IEnumerator DashEffect()
+    {
+        float elapsedTime = 0f;
+        float duration = 0.5f;
+        float strength;
+        while (elapsedTime < (duration/2))
+        {
+            float t = elapsedTime / duration;
+            strength = Mathf.Lerp(0,1,t);
+            elapsedTime += Time.deltaTime;
+            DashEffectImage.material.SetFloat("_Effect", strength);
+            yield return null;
+        }
+        while (elapsedTime < duration)
+        {
+            float t = elapsedTime / duration;
+            strength = Mathf.Lerp(1, 0, t);
+            elapsedTime += Time.deltaTime;
+            DashEffectImage.material.SetFloat("_Effect", strength);
+            yield return null;
+        }
+    }
+
 }
