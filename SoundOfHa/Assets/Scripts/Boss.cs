@@ -30,7 +30,8 @@ public class Boss : MonoBehaviour
 
     public GameObject finishLine;
     public Transform player;
-    SpriteRenderer spriteRenderer;
+    
+    Animator animator;
 
     public SpriteRenderer[] RedEyeRenederers;
     public SpriteRenderer[] GreenEyeRenederers;
@@ -42,7 +43,7 @@ public class Boss : MonoBehaviour
 
     void Start()
     {
-        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        animator = GetComponent<Animator>();
     }
     void Update()
     {
@@ -89,6 +90,7 @@ public class Boss : MonoBehaviour
     {
         if(lastState != BossState.Indifferent)
         {
+            animator.SetTrigger("Stage2");
             Instantiate(bells);
             foreach(SpriteRenderer sr in RedEyeRenederers)
             {
@@ -136,6 +138,7 @@ public class Boss : MonoBehaviour
     {
         if(lastState != BossState.Flustered)
         {
+            animator.SetTrigger("Stage3");
             foreach(SpriteRenderer sr in RedEyeRenederers)
             {
                 sr.sprite = RedEyes[2];
@@ -188,6 +191,7 @@ public class Boss : MonoBehaviour
     {
         if(lastState != BossState.Happy)
         {
+            animator.SetTrigger("Stage4");
             foreach(SpriteRenderer sr in RedEyeRenederers)
             {
                 sr.sprite = RedEyes[3];
