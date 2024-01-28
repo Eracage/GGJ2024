@@ -85,7 +85,6 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonDown("Fire2"))
         {
-            stamina -= 4.0f;
             Interact();
         }
 
@@ -155,10 +154,15 @@ public class PlayerController : MonoBehaviour
     
     private void Dash()
     {
+        if (stamina < staminaDashCost)
+            return;
+
+        stamina -= staminaDashCost;
         Vector3 dashDirection = controller.velocity.normalized;
-        StartCoroutine(SmoothDash(dashDirection, dashDistance, 0.3f));
+        const float dashDuration = 0.3f;
+        nextDash = Time.time + dashDuration;
+        StartCoroutine(SmoothDash(dashDirection, dashDistance, dashDuration));
         StartCoroutine(DashEffect());
-        nextDash = Time.time + dashCooldown;
     }
 
     private IEnumerator SmoothDash(Vector3 direction, float distance, float duration)

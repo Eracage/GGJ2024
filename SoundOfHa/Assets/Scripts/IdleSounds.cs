@@ -11,7 +11,7 @@ public class IdleSounds : MonoBehaviour
     public AudioClip[] clips;
     public AudioSource audioSource;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         audioSource = GetComponent<AudioSource>();
 
@@ -29,7 +29,7 @@ public class IdleSounds : MonoBehaviour
 
     void playAudio()
     {
-        if (clips.Length < 1)
+        if (clips == null || clips.Length < 1)
             return;
 
         int clip = Random.Range(0, clips.Length);

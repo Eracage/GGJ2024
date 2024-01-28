@@ -90,7 +90,8 @@ public class Boss : MonoBehaviour
     {
         if(lastState != BossState.Indifferent)
         {
-            animator.SetTrigger("Stage2");
+            if (animator)
+                animator.SetTrigger("Stage2");
             Instantiate(bells);
             foreach(SpriteRenderer sr in RedEyeRenederers)
             {
