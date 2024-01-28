@@ -1182,11 +1182,34 @@ MonoBehaviour:
   - {fileID: 0}
   finishLine: {fileID: 0}
   player: {fileID: 0}
-  stateSprites:
-  - {fileID: 21300000, guid: e8ce3e04247778b4a87d018751cd7e6e, type: 3}
-  - {fileID: 21300000, guid: a0dcc4319bf24a741b6eff561fa0c97d, type: 3}
-  - {fileID: 21300000, guid: 44c774cd0614c6743a46461838fdd07a, type: 3}
-  - {fileID: 21300000, guid: 4d894bc24a1c901449c6fd03739ce590, type: 3}
+  RedEyeRenederers:
+  - {fileID: 3346444274802335513}
+  - {fileID: 1837745330835785158}
+  GreenEyeRenederers:
+  - {fileID: 443672031450186021}
+  - {fileID: 2189490614526444867}
+  - {fileID: 5396327746269527918}
+  - {fileID: 901731230108014472}
+  TealEyeRenederers:
+  - {fileID: 7176646754791280865}
+  - {fileID: 2406836148546536842}
+  - {fileID: 360730963554502399}
+  - {fileID: 8769225932267308527}
+  RedEyes:
+  - {fileID: 21300000, guid: ef49ada551fe7c447b3330d8fb2e3924, type: 3}
+  - {fileID: 21300000, guid: e6506a532d818314ca3eeaf4427c8098, type: 3}
+  - {fileID: 21300000, guid: 9652ba0449614574eac48005032c2a4d, type: 3}
+  - {fileID: 21300000, guid: 83d0b37b38215834e8cd994892181f4a, type: 3}
+  GreenEyes:
+  - {fileID: 21300000, guid: 3e180231e1b6b954eb711456348d4f6f, type: 3}
+  - {fileID: 21300000, guid: 96ab82f8b54b93840b2f76dc8532b4cc, type: 3}
+  - {fileID: 21300000, guid: fc97fce510e855743a9d3e0bdd4073e4, type: 3}
+  - {fileID: 21300000, guid: 0b4928d2528bf4d49b473072a3255c11, type: 3}
+  TealEyes:
+  - {fileID: 21300000, guid: 314cb8b5debd7c54c87695c4640bd383, type: 3}
+  - {fileID: 21300000, guid: cbd61bd3d1d99c84f92d9a98a8152e37, type: 3}
+  - {fileID: 21300000, guid: 6f9fdbd5f4569b14798981be00999818, type: 3}
+  - {fileID: 21300000, guid: fb43f7f8fe02d9e448acac4b739f4185, type: 3}
 --- !u!95 &2890820155020302368
 Animator:
   serializedVersion: 5
