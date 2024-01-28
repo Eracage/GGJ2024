@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour, IDamageable
     private NavMeshAgent m_Agent;
     private Animator m_Animator;
     [SerializeField] SpriteRenderer[] m_bodySprites;
+    [SerializeField] ParticleSystem m_particleSystem;
 
     void Awake()
     {
@@ -48,6 +49,7 @@ public class Enemy : MonoBehaviour, IDamageable
 
     public void TakeDamage(float damage)
     {
+        m_particleSystem.Emit(1);
         Aggro();
         m_CurrentHealth -= damage;
         if (m_CurrentHealth <= 0)
