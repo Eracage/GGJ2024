@@ -5,6 +5,7 @@ using UnityEngine.AI;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+[RequireComponent(typeof(IdleSounds))]
 public class Enemy : MonoBehaviour, IDamageable
 {
     public EnemyData data;
@@ -28,6 +29,7 @@ public class Enemy : MonoBehaviour, IDamageable
         m_CurrentHealth = data.health;
         GetComponentInChildren<AudioSource>().clip = data.footstepSounds;
         GetComponentInChildren<AudioSource>().Play();
+        GetComponent<IdleSounds>().clips = data.idleSounds;
 
         if(!(data.enragedSprites.Length == data.idleSprites.Length && data.enragedSprites.Length == m_bodySprites.Length))
         {
@@ -54,12 +56,9 @@ public class Enemy : MonoBehaviour, IDamageable
         m_CurrentHealth -= damage;
         if (m_CurrentHealth <= 0)
         {
-            GameObject deathSound = Instantiate(new GameObject("DeathSound"), transform.position, Quaternion.identity);
-            deathSound.AddComponent<AudioSource>().clip = data.onDieSound;
-            deathSound.GetComponent<AudioSource>().Play();
-            Destroy(deathSound, data.onDieSound.length + 0.1f);
+            playClip(data.onDieSound);
 
-            if(data.onDiePrefab != null)
+            if (data.onDiePrefab != null)
             {
                 Instantiate(data.onDiePrefab, transform.position, Quaternion.identity);
             }
@@ -68,10 +67,7 @@ public class Enemy : MonoBehaviour, IDamageable
             return;
         }
 
-        GameObject hitSound = Instantiate(new GameObject("HitSound"), transform.position, Quaternion.identity);
-        hitSound.AddComponent<AudioSource>().clip = data.onHitSound;
-        hitSound.GetComponent<AudioSource>().Play();
-        Destroy(hitSound, data.onHitSound.length + 0.1f);
+        playClip(data.onHitSound);
 
         if (m_CurrentHealth/data.health <= data.patience && !isEnraged)
         {
@@ -86,11 +82,24 @@ public class Enemy : MonoBehaviour, IDamageable
         }
     }
 
+    void playClip(AudioClip sound)
+    {
+        if (!sound)
+            return;
+        GameObject hitSound = Instantiate(new GameObject("HitSound"), transform.position, Quaternion.identity);
+        hitSound.AddComponent<AudioSource>().clip = sound;
+        hitSound.GetComponent<AudioSource>().Play();
+        Destroy(hitSound, sound.length + 0.1f);
+    }
+
     public void Aggro()
     {
         if (HasAggro)
             return;
         HasAggro = true;
+
+        playClip(data.aggroSound);
+
         m_Animator.SetTrigger("StartWalking");
     }
 }
