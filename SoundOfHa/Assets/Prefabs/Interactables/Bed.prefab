@@ -56,7 +56,7 @@ PrefabInstance:
         type: 3}
       propertyPath: timedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 338121578}
+      objectReference: {fileID: 5992255277289011303}
     - target: {fileID: 72687038349159292, guid: 0a9b71e4dfa83e241b0f1ad0021e44b3,
         type: 3}
       propertyPath: timedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
@@ -101,7 +101,7 @@ PrefabInstance:
         type: 3}
       propertyPath: interactEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 338121578}
+      objectReference: {fileID: 5992255277289011303}
     - target: {fileID: 72687038349159292, guid: 0a9b71e4dfa83e241b0f1ad0021e44b3,
         type: 3}
       propertyPath: interactEvent.m_PersistentCalls.m_Calls.Array.data[3].m_Target
@@ -341,7 +341,7 @@ PrefabInstance:
     - target: {fileID: 7560881717965646626, guid: 0a9b71e4dfa83e241b0f1ad0021e44b3,
         type: 3}
       propertyPath: m_Name
-      value: InteractableBed
+      value: Bed
       objectReference: {fileID: 0}
     - target: {fileID: 8797658931740989253, guid: 0a9b71e4dfa83e241b0f1ad0021e44b3,
         type: 3}
@@ -356,19 +356,19 @@ BoxCollider:
     type: 3}
   m_PrefabInstance: {fileID: 6075152447887749466}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &4369304359115676280 stripped
+--- !u!1 &4127938591059328018 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 7560881717965646626, guid: 0a9b71e4dfa83e241b0f1ad0021e44b3,
+  m_CorrespondingSourceObject: {fileID: 7856006945340525896, guid: 0a9b71e4dfa83e241b0f1ad0021e44b3,
     type: 3}
   m_PrefabInstance: {fileID: 6075152447887749466}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &338121578
+--- !u!114 &5992255277289011303
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4369304359115676280}
+  m_GameObject: {fileID: 4127938591059328018}
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8f31c402eed93a142a2f5990df72e870, type: 3}
@@ -376,6 +376,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shakeAngleDeg: 10
   shakesPerSecond: 3
+--- !u!1 &4369304359115676280 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7560881717965646626, guid: 0a9b71e4dfa83e241b0f1ad0021e44b3,
+    type: 3}
+  m_PrefabInstance: {fileID: 6075152447887749466}
+  m_PrefabAsset: {fileID: 0}
 --- !u!82 &97200456
 AudioSource:
   m_ObjectHideFlags: 0
