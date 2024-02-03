@@ -34,6 +34,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3553558898157468136}
+  - {fileID: 8463842847300451626}
   m_Father: {fileID: 8263515772472475008}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -368,7 +369,7 @@ PrefabInstance:
     - target: {fileID: 7560881717965646626, guid: 0a9b71e4dfa83e241b0f1ad0021e44b3,
         type: 3}
       propertyPath: m_Name
-      value: Norsu
+      value: Norsu Variant
       objectReference: {fileID: 0}
     - target: {fileID: 8797658931740989253, guid: 0a9b71e4dfa83e241b0f1ad0021e44b3,
         type: 3}
@@ -388,4 +389,99 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2837465569572208432, guid: 0a9b71e4dfa83e241b0f1ad0021e44b3,
     type: 3}
   m_PrefabInstance: {fileID: 6182690457824232112}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8286382815833987777
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1901341588}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: b38548b7670329f41a5512cc099b931a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b38548b7670329f41a5512cc099b931a,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.0146167
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b38548b7670329f41a5512cc099b931a,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.0146167
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b38548b7670329f41a5512cc099b931a,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.0146167
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b38548b7670329f41a5512cc099b931a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b38548b7670329f41a5512cc099b931a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.92
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b38548b7670329f41a5512cc099b931a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.03
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b38548b7670329f41a5512cc099b931a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.01567046
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b38548b7670329f41a5512cc099b931a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.0010779499
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b38548b7670329f41a5512cc099b931a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.06861625
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b38548b7670329f41a5512cc099b931a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.9975195
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b38548b7670329f41a5512cc099b931a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 7.87
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b38548b7670329f41a5512cc099b931a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: b38548b7670329f41a5512cc099b931a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -178.2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7635826562936255635, guid: b38548b7670329f41a5512cc099b931a,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 72775d9c943ff124385a63df33f090b3, type: 2}
+    - target: {fileID: 919132149155446097, guid: b38548b7670329f41a5512cc099b931a,
+        type: 3}
+      propertyPath: m_Name
+      value: NorsuKirjava (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b38548b7670329f41a5512cc099b931a, type: 3}
+--- !u!4 &8463842847300451626 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b38548b7670329f41a5512cc099b931a,
+    type: 3}
+  m_PrefabInstance: {fileID: 8286382815833987777}
   m_PrefabAsset: {fileID: 0}
