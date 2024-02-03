@@ -4,34 +4,21 @@ using UnityEngine;
 
 public class Boss : MonoBehaviour
 {
-    enum BossState
+    public enum BossStateEnum
     {
         Cry = 0,
         Indifferent = 1,
         Flustered = 2,
         Happy = 3
     }
-    bool shouldSpawnArmy = true;
-    public GameObject[] enemytypes;
-
-    public GameObject bells;
-
-    public GameObject meteor;
-    public List<Transform> armySpawnPoints;
-    float meteorfirerate = 7f;
-    float lastShootTime = 0f;
-
-
-    public GameObject[] destroyers;
-    List<GameObject> army = new List<GameObject>();
-
-    BossState bossState = BossState.Cry;
-    BossState lastState = BossState.Cry;
-
-    public GameObject finishLine;
-    public Transform player;
-    
-    Animator animator;
+    public GameObject[] Enemytypes;
+    public GameObject[] Destroyers;
+    public GameObject Bells;
+    public GameObject FinishLine;
+    public GameObject Meteor;
+    public List<Transform> ArmySpawnPoints;
+    [HideInInspector]
+    public BossStateEnum BossState { get; private set; } = BossStateEnum.Cry;
 
     public SpriteRenderer[] RedEyeRenederers;
     public SpriteRenderer[] GreenEyeRenederers;
@@ -41,195 +28,215 @@ public class Boss : MonoBehaviour
     public Sprite[] GreenEyes;
     public Sprite[] TealEyes;
 
+    private GameObject m_player;
+    private Animator m_animator;
+    private List<GameObject> m_army = new List<GameObject>();
+    private float m_meteorfirerate = 7f;
+    private float m_lastShootTime = 0f;
+    private BossStateEnum m_previousState = BossStateEnum.Cry;
+
     void Start()
     {
-        animator = GetComponent<Animator>();
+        m_player = GameObject.FindGameObjectWithTag("Player");
+        m_animator = GetComponent<Animator>();
+
+        StateBossCry();
+        m_previousState = BossStateEnum.Cry;
     }
+
     void Update()
     {
-        switch(bossState)
+        DoBossAttacks();
+
+        if (!IsArmyAlive())
         {
-            case BossState.Cry:
-                BossCry();
+            var nextState = (int)BossState + 1;
+            if(nextState < 4)
+            {
+                BossState = (BossStateEnum)nextState;
+            }
+        }
+
+        if (BossState == m_previousState)
+            return;
+
+        switch(BossState)
+        {
+            case BossStateEnum.Cry:
                 break;
-            case BossState.Indifferent:
-                BossIndifferent();
+
+            case BossStateEnum.Indifferent:
+                StateBossIndifferent();
+                m_previousState = BossStateEnum.Indifferent;
+                m_lastShootTime = Time.time;
                 break;
-            case BossState.Flustered:
-                BossFlustered();
+
+            case BossStateEnum.Flustered:
+                StateBossFlustered();
+                m_meteorfirerate = 5f;
+                m_lastShootTime = Time.time;
+                m_previousState = BossStateEnum.Flustered;
+                ActivateDestroyers();
                 break;
-            case BossState.Happy:
-                BossHappy();
+
+            case BossStateEnum.Happy:
+                StateBossHappy();
+                m_previousState = BossStateEnum.Happy;
+                break;
+        }
+
+        Instantiate(Bells);
+    }
+
+    private void DoBossAttacks()
+    {
+        switch (BossState)
+        {
+            case BossStateEnum.Cry:
+                break;
+
+            case BossStateEnum.Indifferent:
+                if (Time.time - m_lastShootTime > m_meteorfirerate)
+                {
+                    FireMeteor();
+                }
+                break;
+
+            case BossStateEnum.Flustered:
+                if (Time.time - m_lastShootTime > m_meteorfirerate)
+                {
+                    FireMeteor();
+                }
+                break;
+
+            case BossStateEnum.Happy:
                 break;
         }
     }
 
-    void BossCry()
+    private void ActivateDestroyers()
     {
-        if(shouldSpawnArmy)
+        foreach(GameObject destroyer in Destroyers)
         {
-            SpawnArmy(2,10);
-            shouldSpawnArmy = false;
+            destroyer.SetActive(true);
         }
-        for(int i = 0; i<army.Count; i++)
-        {
-            if(army[i] == null)
-            {
-                army.RemoveAt(i);
-            }
-        }
-        if(army.Count == 0)
-        {
-            bossState = BossState.Indifferent;
-            shouldSpawnArmy = true;
-        }
-
     }
 
-    void BossIndifferent()
+    private void FireMeteor()
     {
-        if(lastState != BossState.Indifferent)
-        {
-            if (animator)
-                animator.SetTrigger("Stage2");
-            Instantiate(bells);
-            foreach(SpriteRenderer sr in RedEyeRenederers)
-            {
-                sr.sprite = RedEyes[1];
-            }
-            foreach(SpriteRenderer sr in GreenEyeRenederers)
-            {
-                sr.sprite = GreenEyes[1];
-            }
-            foreach(SpriteRenderer sr in TealEyeRenederers)
-            {
-                sr.sprite = TealEyes[1];
-            }
-            lastState = BossState.Indifferent;
-            lastShootTime = Time.time;
-        }
-
-        if(shouldSpawnArmy)
-        {
-            SpawnArmy(3,30);
-            shouldSpawnArmy = false;
-        }
-        for(int i = 0; i<army.Count; i++)
-        {
-            if(army[i] == null)
-            {
-                army.RemoveAt(i);
-            }
-        }
-        if(army.Count == 0)
-        {
-            bossState = BossState.Flustered;
-            shouldSpawnArmy = true;
-        }
-
-        if(Time.time - lastShootTime > meteorfirerate)
-        {
-            lastShootTime = Time.time;
-            Instantiate(meteor, new Vector3(player.position.x,200,player.position.z), Quaternion.identity);
-        }
-
+        m_lastShootTime = Time.time;
+        Instantiate(Meteor, new Vector3(m_player.transform.position.x, 200, m_player.transform.position.z), Quaternion.identity);
     }
 
-    void BossFlustered()
+    void StateBossCry()
     {
-        if(lastState != BossState.Flustered)
-        {
-            animator.SetTrigger("Stage3");
-            foreach(SpriteRenderer sr in RedEyeRenederers)
-            {
-                sr.sprite = RedEyes[2];
-            }
-            foreach(SpriteRenderer sr in GreenEyeRenederers)
-            {
-                sr.sprite = GreenEyes[2];
-            }
-            foreach(SpriteRenderer sr in TealEyeRenederers)
-            {
-                sr.sprite = TealEyes[2];
-            }
-            lastState = BossState.Flustered;
-            lastShootTime = Time.time;
-            meteorfirerate = 5f;
-            
-            foreach(GameObject destroyer in destroyers)
-            {
-                destroyer.SetActive(true);
-            }
-        }
+        BossState = BossStateEnum.Cry;
+        SpawnArmy(10);
+    }
 
+    void StateBossIndifferent()
+    {
+        BossState = BossStateEnum.Indifferent;
+
+        if (m_animator)
+            m_animator.SetTrigger("Stage2");
         
-        if(shouldSpawnArmy)
-        {
-            SpawnArmy(4,50);
-            shouldSpawnArmy = false;
-        }
-        for(int i = 0; i<army.Count; i++)
-        {
-            if(army[i] == null)
-            {
-                army.RemoveAt(i);
-            }
-        }
-        if(army.Count == 0)
-        {
-            bossState = BossState.Flustered;
-            shouldSpawnArmy = true;
-        }
+        foreach(SpriteRenderer sr in RedEyeRenederers)
+            sr.sprite = RedEyes[1];
 
-        if(Time.time - lastShootTime > meteorfirerate)
-        {
-            lastShootTime = Time.time;
-            Instantiate(meteor, new Vector3(player.position.x,200,player.position.z), Quaternion.identity);
-        }
+        foreach(SpriteRenderer sr in GreenEyeRenederers)
+            sr.sprite = GreenEyes[1];
+
+        foreach(SpriteRenderer sr in TealEyeRenederers)
+            sr.sprite = TealEyes[1];
+
+        SpawnArmy(30);
     }
 
-    void BossHappy()
+    void StateBossFlustered()
     {
-        if(lastState != BossState.Happy)
+        BossState = BossStateEnum.Flustered;
+
+        if (m_animator)
+            m_animator.SetTrigger("Stage3");
+
+        foreach(SpriteRenderer sr in RedEyeRenederers)
         {
-            animator.SetTrigger("Stage4");
-            foreach(SpriteRenderer sr in RedEyeRenederers)
-            {
-                sr.sprite = RedEyes[3];
-            }
-            foreach(SpriteRenderer sr in GreenEyeRenederers)
-            {
-                sr.sprite = GreenEyes[3];
-            }
-            foreach(SpriteRenderer sr in TealEyeRenederers)
-            {
-                sr.sprite = TealEyes[3];
-            }
-            lastState = BossState.Happy;
-            finishLine.SetActive(true);
+            sr.sprite = RedEyes[2];
         }
+        foreach(SpriteRenderer sr in GreenEyeRenederers)
+        {
+            sr.sprite = GreenEyes[2];
+        }
+        foreach(SpriteRenderer sr in TealEyeRenederers)
+        {
+            sr.sprite = TealEyes[2];
+        }
+            
+        
+        SpawnArmy(50);
     }
 
-
-    void SpawnArmy(int rowcount, int columncount)
+    void StateBossHappy()
     {
-        for(int rows = 0; rows < rowcount; rows++)
+        BossState = BossStateEnum.Happy;
+
+        if (m_animator)
+            m_animator.SetTrigger("Stage4");
+
+        foreach(SpriteRenderer sr in RedEyeRenederers)
         {
-            for(int columns = 0; columns < columncount; columns++)
+            sr.sprite = RedEyes[3];
+        }
+        foreach(SpriteRenderer sr in GreenEyeRenederers)
+        {
+            sr.sprite = GreenEyes[3];
+        }
+        foreach(SpriteRenderer sr in TealEyeRenederers)
+        {
+            sr.sprite = TealEyes[3];
+        }
+        m_previousState = BossStateEnum.Happy;
+        FinishLine.SetActive(true);
+    }
+
+    public bool IsArmyAlive()
+    {
+        bool result = true;
+
+        for (int i = 0; i < m_army.Count; i++)
+        {
+            if (m_army[i] == null)
             {
-                //Get random index of spawnPoints list
-                int randIndex = (int)Mathf.Round(Random.Range(0, armySpawnPoints.Count -1));
+                m_army.RemoveAt(i);
+            }
+        }
+        if (m_army.Count == 0)
+        {
+           result = false;
+        }
 
-                float randX = Random.Range(-20, 20);
-                float randZ = Random.Range(-20, 20);
+        return result;
+    }
 
-                GameObject gm = Instantiate(enemytypes[Random.Range(0, enemytypes.Length)], 
-                                            armySpawnPoints[randIndex].position + new Vector3(randX, 0, randZ), 
-                                            Quaternion.identity);
+    private void SpawnArmy(int count)
+    {
+        m_player.GetComponent<CharacterController>().Move(Vector3.zero - m_player.transform.position);
+
+        for(int i = 0; i < count; i++)
+        {
+            //Get random index of spawnPoints list
+            int randIndex = (int)Mathf.Round(Random.Range(0, ArmySpawnPoints.Count -1));
+
+            float randX = Random.Range(-20, 20);
+            float randZ = Random.Range(-20, 20);
+
+            GameObject gm = Instantiate(Enemytypes[Random.Range(0, Enemytypes.Length)], 
+                                        ArmySpawnPoints[randIndex].position + new Vector3(randX, 0, randZ), 
+                                        Quaternion.identity);
                 
-                army.Add(gm);
-                gm.GetComponent<Enemy>().Aggro();
-            }
+            m_army.Add(gm);
+            gm.GetComponent<Enemy>().Aggro();
         }
     }
 }

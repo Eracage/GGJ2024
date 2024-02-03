@@ -35640,12 +35640,6 @@ Transform:
   m_Father: {fileID: 1341273495}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: -45, z: 0}
---- !u!4 &1475280276 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2477394885700870016, guid: 8a4a84410948d874885078b5caf77c9a,
-    type: 3}
-  m_PrefabInstance: {fileID: 2477394884954082505}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1602464747 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5963707869784788523, guid: dff8f94c416fe754b93098e83fb0af57,
@@ -36564,110 +36558,84 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8778214722665032998, guid: 3bc9765d8b641b94095c0ffa3159558c,
         type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 1475280276}
-    - target: {fileID: 8778214722665032998, guid: 3bc9765d8b641b94095c0ffa3159558c,
-        type: 3}
-      propertyPath: finishLine
+      propertyPath: FinishLine
       value: 
       objectReference: {fileID: 730177241}
     - target: {fileID: 8778214722665032998, guid: 3bc9765d8b641b94095c0ffa3159558c,
         type: 3}
-      propertyPath: armySpawnPoint
-      value: 
-      objectReference: {fileID: 1069921099}
-    - target: {fileID: 8778214722665032998, guid: 3bc9765d8b641b94095c0ffa3159558c,
-        type: 3}
-      propertyPath: enemytypes.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8778214722665032998, guid: 3bc9765d8b641b94095c0ffa3159558c,
-        type: 3}
-      propertyPath: destroyers.Array.data[0]
+      propertyPath: Destroyers.Array.data[0]
       value: 
       objectReference: {fileID: 222884381}
     - target: {fileID: 8778214722665032998, guid: 3bc9765d8b641b94095c0ffa3159558c,
         type: 3}
-      propertyPath: destroyers.Array.data[1]
+      propertyPath: Destroyers.Array.data[1]
       value: 
       objectReference: {fileID: 99322063}
     - target: {fileID: 8778214722665032998, guid: 3bc9765d8b641b94095c0ffa3159558c,
         type: 3}
-      propertyPath: destroyers.Array.data[2]
+      propertyPath: Destroyers.Array.data[2]
       value: 
       objectReference: {fileID: 1968096907}
     - target: {fileID: 8778214722665032998, guid: 3bc9765d8b641b94095c0ffa3159558c,
         type: 3}
-      propertyPath: destroyers.Array.data[3]
+      propertyPath: Destroyers.Array.data[3]
       value: 
       objectReference: {fileID: 1882121838}
     - target: {fileID: 8778214722665032998, guid: 3bc9765d8b641b94095c0ffa3159558c,
         type: 3}
-      propertyPath: destroyers.Array.data[4]
+      propertyPath: Destroyers.Array.data[4]
       value: 
       objectReference: {fileID: 1733208996}
     - target: {fileID: 8778214722665032998, guid: 3bc9765d8b641b94095c0ffa3159558c,
         type: 3}
-      propertyPath: destroyers.Array.data[5]
+      propertyPath: Destroyers.Array.data[5]
       value: 
       objectReference: {fileID: 296127446}
     - target: {fileID: 8778214722665032998, guid: 3bc9765d8b641b94095c0ffa3159558c,
         type: 3}
-      propertyPath: destroyers.Array.data[6]
+      propertyPath: Destroyers.Array.data[6]
       value: 
       objectReference: {fileID: 1602464747}
     - target: {fileID: 8778214722665032998, guid: 3bc9765d8b641b94095c0ffa3159558c,
         type: 3}
-      propertyPath: enemytypes.Array.data[3]
-      value: 
-      objectReference: {fileID: 4921915045990366850, guid: 0347cbce1ffe1f043934e120cefca01a,
-        type: 3}
-    - target: {fileID: 8778214722665032998, guid: 3bc9765d8b641b94095c0ffa3159558c,
-        type: 3}
-      propertyPath: armySpawnPoints.Array.size
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 8778214722665032998, guid: 3bc9765d8b641b94095c0ffa3159558c,
-        type: 3}
-      propertyPath: armySpawnPoints.Array.data[0]
+      propertyPath: ArmySpawnPoints.Array.data[0]
       value: 
       objectReference: {fileID: 1069921099}
     - target: {fileID: 8778214722665032998, guid: 3bc9765d8b641b94095c0ffa3159558c,
         type: 3}
-      propertyPath: armySpawnPoints.Array.data[1]
-      value: 
-      objectReference: {fileID: 1088364777}
-    - target: {fileID: 8778214722665032998, guid: 3bc9765d8b641b94095c0ffa3159558c,
-        type: 3}
-      propertyPath: armySpawnPoints.Array.data[2]
-      value: 
-      objectReference: {fileID: 1706984137}
-    - target: {fileID: 8778214722665032998, guid: 3bc9765d8b641b94095c0ffa3159558c,
-        type: 3}
-      propertyPath: armySpawnPoints.Array.data[3]
-      value: 
-      objectReference: {fileID: 117245277}
-    - target: {fileID: 8778214722665032998, guid: 3bc9765d8b641b94095c0ffa3159558c,
-        type: 3}
-      propertyPath: armySpawnPoints.Array.data[4]
+      propertyPath: ArmySpawnPoints.Array.data[1]
       value: 
       objectReference: {fileID: 448593457}
     - target: {fileID: 8778214722665032998, guid: 3bc9765d8b641b94095c0ffa3159558c,
         type: 3}
-      propertyPath: armySpawnPoints.Array.data[5]
+      propertyPath: ArmySpawnPoints.Array.data[2]
+      value: 
+      objectReference: {fileID: 117245277}
+    - target: {fileID: 8778214722665032998, guid: 3bc9765d8b641b94095c0ffa3159558c,
+        type: 3}
+      propertyPath: ArmySpawnPoints.Array.data[3]
+      value: 
+      objectReference: {fileID: 368113974}
+    - target: {fileID: 8778214722665032998, guid: 3bc9765d8b641b94095c0ffa3159558c,
+        type: 3}
+      propertyPath: ArmySpawnPoints.Array.data[4]
+      value: 
+      objectReference: {fileID: 1088364777}
+    - target: {fileID: 8778214722665032998, guid: 3bc9765d8b641b94095c0ffa3159558c,
+        type: 3}
+      propertyPath: ArmySpawnPoints.Array.data[5]
       value: 
       objectReference: {fileID: 1369805736}
     - target: {fileID: 8778214722665032998, guid: 3bc9765d8b641b94095c0ffa3159558c,
         type: 3}
-      propertyPath: armySpawnPoints.Array.data[6]
+      propertyPath: ArmySpawnPoints.Array.data[6]
       value: 
-      objectReference: {fileID: 915418288}
+      objectReference: {fileID: 1706984137}
     - target: {fileID: 8778214722665032998, guid: 3bc9765d8b641b94095c0ffa3159558c,
         type: 3}
-      propertyPath: armySpawnPoints.Array.data[7]
+      propertyPath: ArmySpawnPoints.Array.data[7]
       value: 
-      objectReference: {fileID: 368113974}
+      objectReference: {fileID: 915418288}
     - target: {fileID: 8778214722665033179, guid: 3bc9765d8b641b94095c0ffa3159558c,
         type: 3}
       propertyPath: m_Name

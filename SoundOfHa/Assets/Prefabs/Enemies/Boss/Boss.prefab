@@ -1165,14 +1165,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2069a0c25a63ae47bc90f752fd2ce82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemytypes:
-  - {fileID: 2738647545852567038, guid: f1de161fa0cc946409a17044c4c52956, type: 3}
+  Enemytypes:
   - {fileID: 4921915045990366850, guid: f63b4a26713bf9b4cb572dd4229b9aba, type: 3}
+  - {fileID: 2738647545852567038, guid: f1de161fa0cc946409a17044c4c52956, type: 3}
   - {fileID: 4921915045990366850, guid: 8b3519b25f1d967458f11c3f217de247, type: 3}
-  bells: {fileID: 2053906258811065535, guid: ec8c33e0bbc7a9b45b2005e40fd8a6f4, type: 3}
-  meteor: {fileID: 4409085095016373658, guid: 0f168f8d7e8471f4ab1824582fc4d5af, type: 3}
-  armySpawnPoint: {fileID: 0}
-  destroyers:
+  - {fileID: 4921915045990366850, guid: 0347cbce1ffe1f043934e120cefca01a, type: 3}
+  Destroyers:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -1180,8 +1178,18 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  finishLine: {fileID: 0}
-  player: {fileID: 0}
+  Bells: {fileID: 2053906258811065535, guid: ec8c33e0bbc7a9b45b2005e40fd8a6f4, type: 3}
+  FinishLine: {fileID: 0}
+  Meteor: {fileID: 4409085095016373658, guid: 0f168f8d7e8471f4ab1824582fc4d5af, type: 3}
+  ArmySpawnPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   RedEyeRenederers:
   - {fileID: 3346444274802335513}
   - {fileID: 1837745330835785158}
