@@ -17,7 +17,7 @@ public class Boss : MonoBehaviour
     public GameObject bells;
 
     public GameObject meteor;
-    public Transform armySpawnPoint;
+    public List<Transform> armySpawnPoints;
     float meteorfirerate = 7f;
     float lastShootTime = 0f;
 
@@ -217,7 +217,16 @@ public class Boss : MonoBehaviour
         {
             for(int columns = 0; columns < columncount; columns++)
             {
-                GameObject gm = Instantiate(enemytypes[Random.Range(0, enemytypes.Length)], armySpawnPoint.position + new Vector3((columns+1)*3, 0, (rows+1)*3), Quaternion.identity);
+                //Get random index of spawnPoints list
+                int randIndex = (int)Mathf.Round(Random.Range(0, armySpawnPoints.Count -1));
+
+                float randX = Random.Range(-20, 20);
+                float randZ = Random.Range(-20, 20);
+
+                GameObject gm = Instantiate(enemytypes[Random.Range(0, enemytypes.Length)], 
+                                            armySpawnPoints[randIndex].position + new Vector3(randX, 0, randZ), 
+                                            Quaternion.identity);
+                
                 army.Add(gm);
                 gm.GetComponent<Enemy>().Aggro();
             }
